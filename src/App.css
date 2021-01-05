@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.gogo {
+  color: antiquewhite;
+  background-color: sandybrown ;
+  display: flex;
+}
+
+table {
+  width: 100%;
+  padding: 10%;
+  margin: 3px;
+  border-collapse: collapse;
+  background-color: darkolivegreen;
+  border-radius: 5px;
+
+}
+th,
+td {
+  padding: 5%;
+  border: 1px solid burlywood;
+  border-radius: 5px;
+  text-align: center;
+}

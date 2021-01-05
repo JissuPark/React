@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import { welcome, Localtime, Gogodan } from './jsx';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div id='div1'>
+        <Localtime />
+      </div>
+      <div>
+        {welcome}
+      </div>
+      <h3>구구단 출력 (table)</h3>
+      <div className='gogo'>
+        <Gogodan />
+      </div>
+    </>
   );
 }
-
+setInterval(Localtime, 1000);
 export default App;
