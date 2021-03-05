@@ -2,45 +2,39 @@ import React, { Component } from 'react';
 import {Form} from 'semantic-ui-react';
 
 class MultiInput extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            isGoing: false,
-            numberOfGuests: 0
-        }
-    }
-
-    handleCheckbox = (event) => {
-        this.setState({isGoing: !this.state.isGoing});
-    }
-
-    handleNumber = (event) => {
-        this.setState({numberOfGuests: event.target.value});
-    }
-
+   
     handleSubmit = (event) => {
-        alert("is going ? "+this.state.isGoing+'\n'+
-            "number of guests : " + this.state.numberOfGuests);
+        alert('This action is running in Text Component!\ncheckbox value is ["'+ this.props.checkbox+'"]\nnumber value is ["'+this.props.number+'"]');
             event.preventDefault();
     }
     
     render() {
         return (
-            <Form onSubmit={this.handleSubmit}>
-                    <label>Is Going On?</label> 
+            <Form inverted onSubmit={this.handleSubmit}>
+                <Form.Group>
                     <Form.Checkbox
-                        name="isGoing"
-                        checked={this.state.isGoing}
-                        onChange={this.handleCheckbox} 
+                        radio
+                        label="Man"
+                        value="man"
+                        checked={this.props.checkbox==='man'}
+                        onChange={this.props.handleCheckboxChange} 
                     />
-                    <Form.Input
-                        label="Number of guests:"
-                        name="numberOfGuests"
-                        type="number"
-                        value={this.state.numberOfGuests}
-                        onChange={this.handleNumber} 
+                    <Form.Checkbox
+                        radio
+                        label="Woman"
+                        value="woman"
+                        checked={this.props.checkbox==='woman'}
+                        onChange={this.props.handleCheckboxChange} 
                     />
-                <Form.Button>submit</Form.Button>
+                </Form.Group>
+                <Form.Input
+                    label="Age:"
+                    name="Age"
+                    type="number"
+                    value={this.props.number}
+                    onChange={this.props.handleNumberChange} 
+                />
+                <Form.Button floated='right'>submit</Form.Button>
             </Form>
         );
     }

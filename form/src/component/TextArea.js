@@ -1,28 +1,21 @@
 import React, { Component } from 'react';
-import {Form, Button} from "semantic-ui-react";
+import {Form} from "semantic-ui-react";
 
 class TextArea extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            value : ''
-        }
-    }
-    handleChange = (event) => {
-        this.setState({value: event.target.value})
-    }
+    
     handleSubmit = (event) => {
-        alert('textarea value is '+ this.state.value);
+        alert('This action is running in Text Component!\nTextarea value is ["'+ this.props.textArea+'"]');
         event.preventDefault();        
     }
+
     render() {
         return (
-            <Form onSubmit={this.handleSubmit}>
+            <Form inverted onSubmit={this.handleSubmit}>
                 <Form.TextArea
-                    label="Essay:"
-                    value={this.state.value} 
-                    onChange={this.handleChange} />
-                <Button type="submit" floated='right'>Submit</Button>
+                    label="Introduce:"
+                    value={this.props.textArea} 
+                    onChange={this.props.handleTextChange} />
+                <Form.Button type="submit" floated='right'>Submit</Form.Button>
             </Form>
         );
     }
