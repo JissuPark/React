@@ -15,7 +15,7 @@ class TextArea extends Component {
                     label="Introduce:"
                     value={this.props.textArea} 
                     onChange={this.props.handleTextChange} />
-                <Form.Button type="submit" floated='right'>Submit</Form.Button>
+                {/*<Form.Button type="submit" floated='right'>Submit</Form.Button>*/}
             </Form>
         );
     }

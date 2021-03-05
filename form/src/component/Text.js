@@ -15,7 +15,7 @@ class Text extends Component {
                 label='Name:'
                 value={this.props.text} 
                 onChange={this.props.handleTextChange} />
-                <Form.Button type="submit" floated='right'>Submit</Form.Button>
+                {/*<Form.Button type="submit" floated='right'>Submit</Form.Button>*/}
             </Form>
         );
     }

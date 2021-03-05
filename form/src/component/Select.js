@@ -29,7 +29,7 @@ class Select extends Component {
                         label="Pick your favorite flavor:"
                         placeholder="Pick one!"
                     />
-                    <Form.Button type="submit" floated='right'>Submit</Form.Button>
+                    {/*<Form.Button type="submit" floated='right'>Submit</Form.Button>*/}
                 </Form>
             </div>
         );
