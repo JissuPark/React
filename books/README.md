@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Books app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+책 정보를 가져와 리스트로 출력하고 클릭한 책의 세부 정보를 보여주는 앱으로 기존에 있던 예제에 입력창을 더해 책 제목에 입력값이 있는 책만 출력하도록 기능을 추가했다. 
 
-## Available Scripts
+![image](https://user-images.githubusercontent.com/42437443/110211234-ff86eb80-7ed8-11eb-9c4f-85e0012ac1fc.png)
 
-In the project directory, you can run:
+## 실행 방법
 
-### `yarn start`
+프로젝트를 다운받은 후, `books`폴더로 이동한다. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash 
+$ cd books
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+todo 폴더에서 `yarn`명령어를 통해 실행한다. 
 
-### `yarn test`
+```bash  
+$ yarn start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+프로젝트가 실행되며 브라우저에서 http://localhost:3000번으로 접속되면 개발된 화면을 볼 수 있다. 
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 구성 요소 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Create React App](https://github.com/facebook/create-react-app)
+- [semantic-ui-react](https://react.semantic-ui.com/)
+- class based component
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 기능
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 	책 목록 출력
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+​	주어진 데이터를 파싱해 책 목록으로 출력한다. 
 
-## Learn More
+​	현재는 데이터를 주지만 데이터베이스를 추가하면 데이터베이스 기반으로 동작하도록 수정할 계획이다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 	책 세부정보 표시
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+​	책 목록에서 클릭 이벤트가 발생하면 해당 책의 세부 정보를 오른쪽에 띄워준다. 
 
-### Code Splitting
+### 	책 검색 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+​	입력창에 들어온 값을 기준으로 대소문자를 구분하지 않고 책 제목을 검색한다. 
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+## 구조 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Books 앱은 이름과 검색창이 있는 위쪽과 책 정보가 있는 아래쪽으로 구분된다. 
 
-### Advanced Configuration
+아래쪽 화면이 메인으로 다시 `BookList`와 `BookDetail`로 나뉜다. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 	BookList
 
-### Deployment
+​	책 목록은 `props`로 받아와 JS의 map함수로 `BookItem`에 책 정보를 뿌려주는 역할을 한다. `BookItem`은 하나의 책 정	보를 표현하는 하나의 단위로 다시 `props`로 데이터를 받아와 컴포넌트를 구성한다.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### 	BookDetail
 
-### `yarn build` fails to minify
+​	책 세부정보 데이터를 `props`로 받아 오른쪽 화면에 표현한다. 왼쪽에 표현되는 목록과 다르게 카드 형태를 띄고 있으	며 부모 컴포넌트로부터 클릭 이벤트를 통해 변경 가능하도록 작성되었다. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 상위 컴포넌트를 중심으로 `BookList`와 `BookDetail`이 데이터를 주고 받기때문에 상위 컴포넌트에 `state`형태로 데이터를 수정할 수 있게 이벤트 함수와 함께 작성했다.
+- 하위 컴포넌트(BookList, BookDetail)는 데이터를 받아서 수정하지 않기때문에 `props`형태로 사용할 수만 있게 작성했다.
+
+
+
+## 추후 진행 일정
+
+### 	백엔드 개발 
+
+​	아직 미정이지만 `Python`-`Django/Flask` 프레임워크를 사용해 `REST` 형태의 백엔드를 개발해 연결할 예정이다. 
+
+### 	데이터베이스 추가
+
+​	REST 형태의 백엔드가 완성되면 RDMS(`MySQL/MariaDB`)를 데이터베이스로 사용할 예정이다. 
