@@ -1,28 +1,6 @@
-import PanelClass from './component/PanelClass';
-import MultiInputRfs from "./component/MultiInputRfs";
-import TextRfs from "./component/TextRfs";
-import SelectRfs from "./component/SelectRfs";
-import TextAreaRfs from "./component/TextAreaRfs";
-import {Tab, Grid, Segment} from 'semantic-ui-react';
-
-function PanelFunction(){
-  return(
-    <Grid columns={2} divided>
-    <Grid.Row stretched>
-      <Grid.Column>
-        <Segment inverted color='teal'><TextRfs/></Segment>      
-        <Segment inverted color='teal'><TextAreaRfs/></Segment>
-        <Segment inverted color='teal'><SelectRfs/></Segment>  
-        <Segment inverted color='teal'><MultiInputRfs/></Segment>
-      </Grid.Column>
-      <Grid.Column>
-        <Segment>alert</Segment>
-      </Grid.Column>
-    </Grid.Row>
-  </Grid>
-  )
-}
-
+import PanelClass from './component/class/PanelClass';
+import PanelFunction from './component/function/PanelFunction';
+import {Tab} from 'semantic-ui-react';
 
 
 function App() {

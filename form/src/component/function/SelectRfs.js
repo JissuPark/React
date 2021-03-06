@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Form } from "semantic-ui-react";
 
 
 function SelectRfs(props) {
-    const [value, setValue] = useState('grapefruit');
-    function handleChange(event,{value}){
-        setValue({value}.value);
-    }
     function handleSubmit(event){
-        alert(value + ' is selected');
+        alert(props.select + ' is selected');
         event.preventDefault();
     }
     const options = [
@@ -20,13 +16,14 @@ function SelectRfs(props) {
     return (
         <Form inverted onSubmit={handleSubmit}>
                 <Form.Select
-                    //fluid
+                    fluid
                     options={options}
-                    value={value}
-                    onChange={handleChange}
+                    value={props.select}
+                    onChange={props.handleSelect}
                     label="Pick your favorite flavor:"
+                    placeholder="Pick one!"
                 />
-                <Form.Button type="submit" floated='right'>Submit</Form.Button>
+                {/*<Form.Button type="submit" floated='right'>Submit</Form.Button>*/}
         </Form>
     );
 }

@@ -32,7 +32,6 @@ class PanelClass extends Component{
 
     checkboxChange = (event, {value}) => {
         this.setState({checkboxValue: {value}.value});
-        console.log(this.state.checkboxValue);
     }
 
     numberChange = (event) => {
