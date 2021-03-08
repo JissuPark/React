@@ -27,6 +27,7 @@ $ yarn start
 - [Create React App](https://github.com/facebook/create-react-app)
 - [semantic-ui-react](https://react.semantic-ui.com/)
 - class based component
+- [mobx](https://mobx.js.org/README.html)⭐UPDATE⭐
 
 
 
@@ -64,6 +65,7 @@ Books 앱은 이름과 검색창이 있는 위쪽과 책 정보가 있는 아래
 
 - 상위 컴포넌트를 중심으로 `BookList`와 `BookDetail`이 데이터를 주고 받기때문에 상위 컴포넌트에 `state`형태로 데이터를 수정할 수 있게 이벤트 함수와 함께 작성했다.
 - 하위 컴포넌트(BookList, BookDetail)는 데이터를 받아서 수정하지 않기때문에 `props`형태로 사용할 수만 있게 작성했다.
+- ⭐`mobx`를 사용해 상태 관리가 가능하도록 전체적인 리펙토링을 진행했다.⭐
 
 
 
