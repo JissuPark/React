@@ -1,26 +1,28 @@
+import { inject, observer } from 'mobx-react';
 import React, { Component } from 'react';
 import { Card, Image } from 'semantic-ui-react';
 
-
+@inject("BookStore")
+@observer
 class BookDetail extends Component {
     render() {
-        if (this.props.book){
-            const { title, price, author, imgUrl, introduce } = this.props.book;
+        const { book } = this.props.BookStore;
+        if (book){
             return (
                 <div>
                     <Card>
-                        <Image src={imgUrl} wrapped ui={false} />
+                        <Image src={book.imgUrl} wrapped ui={false} />
                         <Card.Content>
-                            <Card.Header>{title}</Card.Header>
+                            <Card.Header>{book.title}</Card.Header>
                             <Card.Meta>
-                                {price}
+                                {book.price}
                             </Card.Meta>
                             <Card.Description>
-                                {author}
+                                {book.author}
                             </Card.Description>
                         </Card.Content>
                         <Card.Content extra>
-                            {introduce}
+                            {book.introduce}
                         </Card.Content>
                     </Card>
                 </div>

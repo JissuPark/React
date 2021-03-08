@@ -3,39 +3,15 @@ import BookList from "./component/BookList";
 import BookDetail from "./component/BookDetail";
 import { Grid, Input } from 'semantic-ui-react';
 import React, { Component } from 'react';
+import {inject, observer} from 'mobx-react';
 
+@inject('BookStore')
+@observer
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      books: Books,
-      book: Books[0],
-      search: ''
-    }
-  }
-
-  onSelect = (s) => {
-    this.setState({
-      book: s
-    });
-  }
-
-  setInput = (e) => {
-    const newBooks = Books.filter(abook => {
-      return abook.title.toLowerCase().includes(e.target.value.toLowerCase());
-    });
-    this.setState({
-      books: newBooks,
-      book: newBooks[0]
-    });
-  }
-
-  settings = (nb) =>{
-    this.setState({book:nb[0], books:nb});
-  }
-
   
   render() {
+    const {setInput} = this.props.BookStore;
+    console.log(setInput);
     return (
       <>
         <div className="App">
@@ -43,16 +19,16 @@ class App extends Component {
           <Input fluid
             placeholder="Seacrh..."
             action={{ icon: 'search'}}
-            onChange={this.setInput}
+            onChange={setInput}
           />
         </div>
         <hr />
         <Grid columns={2}>
           <Grid.Column>
-            <BookList books={this.state.books} select={this.onSelect}></BookList>
+            <BookList/>
           </Grid.Column>
           <Grid.Column>
-            <BookDetail book={this.state.book}></BookDetail>
+            <BookDetail/>
           </Grid.Column>
         </Grid>
       </>
