@@ -28,6 +28,7 @@ $ yarn start
 - [semantic-ui-react](https://react.semantic-ui.com/)
 - function based component
 - hook
+- [mobx](https://mobx.js.org/README.html)⭐UPDATE⭐
 
 
 
@@ -51,23 +52,28 @@ $ yarn start
 
 
 
-## 구조 
+## 구조 ⭐(udpate)⭐
 
-Todo 앱의 구조는 크게 `Divider`를 기준으로 위쪽을 `Header` , 아래쪽을 `Body`로 구성했다. 
+Todo 앱의 구조는 크게 `Divider`를 기준으로 위쪽을 `TodoHeader` , 아래쪽을 `TodoBody`로 구성했다. 
 
-### 	Header 
+### 	TodoHeader 
 
-​	Header는 앱의 이름과 입력창으로 구성된다. 
+​	TodoHeader는 앱의 이름과 입력창으로 구성된다. 
 
-​	개발과정에서 코드가 길지 않아 세부 컴포넌트로 나누지 않았지만 클린 코드 작성을 위해 컴포넌트로 분리할 계획이다.
+- [x] 개발과정에서 코드가 길지 않아 세부 컴포넌트로 나누지 않았지만 클린 코드 작성을 위해 컴포넌트로 분리할 계획이다.
 
-### 	Body	
+### 	TodoBody	
 
-​	Body는 할 일 목록과 전체 삭제 버튼으로 구성된다. 역시 컴포넌트가 많지 않아서 나누지 않았지만 분리 예정이다. 
+​	TodoBody는 할 일 목록과 전체 삭제 버튼으로 구성된다. 
+
+- [x] 역시 컴포넌트가 많지 않아서 나누지 않았지만 분리 예정이다. 
+
+  => `TodoList`로 분리 후 최적화를 위해 다시 `TodoItem`으로 할 일 단위로 분리했다.
 
 - 컴포넌트간 데이터 전달을 위해서 `useState`로 state를 전달했다.
 - 상태 변화에 따라 컴포넌트의 속성 변경을 위해서는 `삼항 연산자`를 사용했다. 
 - 가능한 함수는 `arrow function`을 사용해서 작성했고 컴포넌트 업데이트를 위해 set함수가 들어가도록 구성했다.
+- ⭐`mobx`를 사용해 상태 관리할 수 있도록 전체적인 리팩토링을 진행했다. ⭐
 
 
 
