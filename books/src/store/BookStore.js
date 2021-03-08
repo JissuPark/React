@@ -1,4 +1,4 @@
-import Books from "../component/Books";
+import Books from "../Books";
 import {action, makeObservable, observable} from 'mobx';
 
 class BookStore {

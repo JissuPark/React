@@ -1,6 +1,5 @@
-import Books from "./component/Books.js";
-import BookList from "./component/BookList";
-import BookDetail from "./component/BookDetail";
+import BookListContainer from "./container/BookListContainer";
+import BookContainer from "./container/BookContainer";
 import { Grid, Input } from 'semantic-ui-react';
 import React, { Component } from 'react';
 import {inject, observer} from 'mobx-react';
@@ -25,10 +24,10 @@ class App extends Component {
         <hr />
         <Grid columns={2}>
           <Grid.Column>
-            <BookList/>
+            <BookListContainer/>
           </Grid.Column>
           <Grid.Column>
-            <BookDetail/>
+            <BookContainer/>
           </Grid.Column>
         </Grid>
       </>
