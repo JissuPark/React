@@ -12,6 +12,14 @@ class TodoStore {
         makeObservable(this);
     }
 
+    setInitProp = () => {
+        this.todo = {
+            id: '',
+            name: '',
+            checked: false,
+            date: new Date()
+        }
+    }
     @action
     setTodoProp=(key, value)=>{
         this.todo = {
@@ -22,15 +30,17 @@ class TodoStore {
     @action
     addTodo = () => {
         this.todos = this.todos.concat(this.todo);
-        this.setTodoProp("name", '');
+        this.setInitProp();
     }
     @action
     clearTodo = () => {
         this.todos = [];
+        this.setInitProp();
     }
     @action
     removeTodo = (item) => {
         this.todos = this.todos.filter(todo => todo !== item);
+        this.setInitProp();
     }
     @action
     changeTodoProp = (item, key, value) => {
