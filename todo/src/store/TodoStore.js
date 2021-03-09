@@ -1,36 +1,43 @@
 import { observable,action, makeObservable } from 'mobx';
 class TodoStore {
-    @observable inputValue = '';
     @observable todos = [];
-    @observable checked = [];
+    @observable todo = {
+        id : '',
+        name : '',
+        checked : false,
+        date : new Date()
+    };
 
     constructor(){
         makeObservable(this);
     }
+
     @action
-    setInputValue = (value) => {
-        this.inputValue = value;
+    setTodoProp=(key, value)=>{
+        this.todo = {
+            ...this.todo,
+            [key]:value
+        }
     }
     @action
     addTodo = () => {
-        this.todos = this.todos.concat(this.inputValue);
-        this.checked = this.checked.concat(false);
-        this.inputValue = '';
+        this.todos = this.todos.concat(this.todo);
+        this.setTodoProp("name", '');
     }
     @action
     clearTodo = () => {
         this.todos = [];
-        this.checked = [];
     }
     @action
-    removeTodo = (idx) => {
-        this.todos = this.todos.filter((t, i) => i !== idx);
-        this.checked = this.checked.filter((t, i) => i !== idx);
+    removeTodo = (item) => {
+        this.todos = this.todos.filter(todo => todo !== item);
     }
     @action
-    changeCheck = (idx) => {
-        this.checked = this.checked.map((c, i) => i === idx ? !c : c );
+    changeTodoProp = (item, key, value) => {
+        this.todos = this.todos.map(todo => 
+            todo === item ? {...todo,[key]:value}:todo);
     }
+    
 }
 
 export default new TodoStore();

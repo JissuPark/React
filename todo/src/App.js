@@ -1,6 +1,6 @@
 import { Divider, Segment} from 'semantic-ui-react';
-import TodoBody from './component/TodoBody';
-import TodoHeader from './component/TodoHeader';
+import TodoBodyContainer from './container/TodoBodyContainer';
+import TodoHeaderContainer from './container/TodoHeaderContainer';
 
 
 function App() {
@@ -8,9 +8,9 @@ function App() {
   return (
     <div className="App">
       <Segment basic textAlign='center'>
-        <TodoHeader/>
+        <TodoHeaderContainer/>
         <Divider horizontal>List</Divider>
-        <TodoBody/>
+        <TodoBodyContainer/>
       </Segment>
     </div>
   );
