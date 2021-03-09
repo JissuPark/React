@@ -35,7 +35,7 @@ function TodoItemView(props) {
                             </Button>}>
                         <Modal.Header>Edit what to do</Modal.Header>
                         <Modal.Content>
-                            <Input fluid value={editvalue} onChange={(e)=>setEditValue(e.target.value)}/>
+                            <Input fluid focus value={editvalue} onChange={(e)=>setEditValue(e.target.value)}/>
                         </Modal.Content>
                         <Modal.Actions>
                             <Button color="green" onClick={editTodo}>Save</Button>
